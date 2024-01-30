@@ -1,0 +1,33 @@
+Ques1.  No the graph does not have a Eulerian walk because in order to have a Eulerian walk the multigraph must satisfy the two conditions
+     1. If the graph is connected, then all the vertices should have an even degree
+     2. If the graph is not connected, then either 0 or at most 2 vertices should have have an odd degree. 
+
+Since in the graph, only one vertex i.e vertex 3 has a degree of 5 and rest are even, the graph does not have a Eulerian walk
+
+                         In Degree    Out Degree
+Ques2 (a)         0           3           0
+                  1           2           1
+                  2           1           2 
+                  3           1           3
+                  4           2           1
+                  5           2           3
+
+     
+      (b)        0 1 2 3 4 5
+              0  0 0 0 0 0 0
+              1  1 0 0 0 0 0 
+              2  0 1 0 0 0 1
+              3  0 0 1 0 1 1
+              4  1 0 0 0 0 0
+              5  1 1 0 0 1 0 
+
+
+      (c)     0 
+              1 --> 0 --> null
+              2 --> 1 --> 5 --> null
+              3 --> 2 --> 4 --> 5 --> null
+              4 --> 0 --> null
+              5 --> 0 --> 1 --> 4 --> null
+
+      (d)    
+
