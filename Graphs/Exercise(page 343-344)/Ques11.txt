@@ -1,0 +1,6 @@
+
+We can prove that an undirected connected graph with at least one vertex of odd degree does not have a euler path by using euler theorem 
+which states that there must be 0 or 2 vertices with odd paths. 
+
+An Euler path for an undirected graph means that all edges must be traversed only once. If we have at least one vertex with odd degree
+it is not possible to start and end the walk at different circuits.
