@@ -1,5 +1,6 @@
 
 /*
+Ques 10 is also the same but no multi list representation 
 
 In order for us to decide which representation is suitable for graphs to be stored on a disk, 
 we need to understand that it depends on the graph. If the graph is sparse, meaning the edges are not a lot, 
