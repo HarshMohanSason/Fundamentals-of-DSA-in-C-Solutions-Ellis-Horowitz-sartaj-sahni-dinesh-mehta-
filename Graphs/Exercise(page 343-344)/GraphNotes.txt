@@ -1,0 +1,37 @@
+Graphs notes: 
+
+
+Euler Paths and Euler Circuits
+
+An Euler Path is a path that goes through every edge of a graph exactly once
+An Euler Circuit is an Euler path that begins and ends at the same vertex
+
+
+Euler’s Theorem
+
+1. If a graph has more than 2 vertices of odd degree then it has no Euler paths
+2. If a graph is connected and has 0 or 2 vertices of odd degree, then it has at least one Euler path
+3. If a graph is connected and has 0 vertices of odd degree, then it has at least one Euler circuit
+
+	•	Degree of a vertex is the number of edges incident to that vertex.
+
+	•	In degree of a vertex is the number of edges coming towards that vertex
+
+	•	Out degree of a vertex is the number of edges going out from that vertex. 
+
+Undirected Graphs: 
+
+	•	n (n - 1) / 2  is the max no of edges for any n - vertex and is said to be complete
+	•	n (n -1 ) is the max no of edges for n vertex in a directed graph
+
+
+Graphs are represented most commonly using: 
+
+	1.	Adjacent matrices
+	2.	Adjacency lists
+	3.	Adjacency multilists
+
+
+In adjacent matrix for an undirected graph, the degree of any vertex is just the sum of its row
+
+Directed graph however, the out degree is the sum of row and in degree is sum of column
