@@ -35,3 +35,71 @@ Graphs are represented most commonly using:
 In adjacent matrix for an undirected graph, the degree of any vertex is just the sum of its row
 
 Directed graph however, the out degree is the sum of row and in degree is sum of column
+
+** Elementary graph operations **: 
+
+Depth First Search: 
+
+Pick one node and traverse till its end then backtrack
+** Create a map to keep track of all the vertex visited and a boolean value to mark them true : map<int, bool> markVisited
+** Use adj list to create a graph: map<int list<int>> adjVertices; 
+
+void DFS(int v) (v here is the starting vertex){
+
+visited[v] = true;  //mark the node visited; 
+
+list<int>:: iterator; //pointer to iterate through the lists; 
+for(int i = adjVertices[v].begin(); i !=adjVertices[v].end() ; ++i) //Iterate through the adj vertices until the end is reached
+     if(!visited[v]) //if it is marked false
+         DFS(*i);  //recurse through the vertex and mark it true
+
+}
+
+Breadth First Search: 
+
+Basic: Visit all the adj nodes then first on each level. 
+
+** Create a vector<bool> mark all the visited nodes true; 
+** Use a queue<int> q to keep track of the visited nodes; 
+
+void BFS(int v) { v is the starting vertex here
+
+**Initialize the vector with all values false
+visited[v] = true //mark the initial vertex true at that index. 
+
+q.push_back(v) //push the starting vertex into the queue
+
+while(queue is not empty){
+
+int s = q.front();
+q.pop_front();
+
+for(all adj vertices in adj[v])
+ {
+    if(!visited[adj])
+       visited[adj] = true; 
+       q.push_back(adj)
+ }
+}
+
+}
+
+Connected Components:: 
+
+For an undirected graph G we can determine if a graph is connected or not by simply using DFS to check if there are any univisited vertex. In otherwords the vector containing bool values should be true for all vertices else it is not connected. 
+
+A spanning tree of a graph is basically a graph with the least amount of edges req to keep the graph connected. It is a subset of the same graph but without any cycles
+
+**Spanning trees have n-1 edges
+**Max no of spanning trees from a graph can be n^n-2
+**From a complete graph, by removing maximum e - n + 1 edges, we can construct a spanning tree.
+
+
+
+
+
+
+
+
+
+
