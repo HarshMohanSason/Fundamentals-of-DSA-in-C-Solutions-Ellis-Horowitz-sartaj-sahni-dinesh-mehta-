@@ -19,6 +19,8 @@ Euler’s Theorem
 
 	•	Out degree of a vertex is the number of edges going out from that vertex. 
 
+
+A graph is considered to be connected if there is a path from every vertex. Basically all the vertices needs to have a degree. 
 Undirected Graphs: 
 
 	•	n (n - 1) / 2  is the max no of edges for any n - vertex and is said to be complete
@@ -93,6 +95,12 @@ A spanning tree of a graph is basically a graph with the least amount of edges r
 **Spanning trees have n-1 edges
 **Max no of spanning trees from a graph can be n^n-2
 **From a complete graph, by removing maximum e - n + 1 edges, we can construct a spanning tree.
+
+Bi connected Components: 
+
+A graph is bi connected if it doesn't have any articulation points:  
+
+(A vertex is said to be an articulation point in a graph if removal of the vertex and associated edges disconnects the graph)
 
 
 
