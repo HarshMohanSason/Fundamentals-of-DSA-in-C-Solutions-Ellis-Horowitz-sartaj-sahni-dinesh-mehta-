@@ -1,4 +1,7 @@
 
+// This solution is same for the Question1, Question2, Question3, Question4 and
+// Question5.
+
 #include <iostream>
 #include <list>
 #include <map>
@@ -39,6 +42,42 @@ public:
   }
 };
 
+void DFS_adjMatrix(int startVertex, vector<vector<int>> &adjMatrix,
+                   vector<bool> &visited) {
+  visited[startVertex] = true; // mark the inital visited vertex to true
+  cout << startVertex << " ";
+
+  for (auto i = 0; i < adjMatrix.size(); i++) {
+    if (adjMatrix[startVertex][i] && !visited[i]) {
+      visited[startVertex] = true;
+      DFS_adjMatrix(i, adjMatrix, visited);
+    }
+  }
+}
+
+void BFS_adjMatrix(int startVertex, vector<vector<int>> &adjMatrix,
+                   vector<bool> &visited, Graph g) {
+  fill(visited.begin(), visited.end(),
+       false); // Set all values in visited to false
+
+  visited[startVertex] = true; // Mark the starting vertex as visited
+
+  g.bfsQ.push(startVertex);
+
+  while (!g.bfsQ.empty()) {
+    int s = g.bfsQ.front();
+
+    cout << s << " ";
+    g.bfsQ.pop();
+
+    for (auto i = 0; i < adjMatrix.size(); i++) {
+      if (adjMatrix[s][i] && !visited[i]) {
+        visited[s] = true;
+        g.bfsQ.push(i);
+      }
+    }
+  }
+}
 // Calling DFS on the garph
 void DFS(int startVertex, Graph g) // DFS function which has a start vertex;
 {
@@ -85,11 +124,6 @@ int main() {
 
   Graph g(4); // create instance for graph (4 vertices)
 
-  g.addEdge(0, 1);
-  g.addEdge(0, 2);
-  g.addEdge(1, 3);
-  g.addEdge(3, 2);
-
   // Just using a simple undirected graph here:
 
   /*
@@ -99,28 +133,48 @@ int main() {
     1 ---- 3
   */
 
+  g.addEdge(0, 1);
+  g.addEdge(0, 2);
+  g.addEdge(1, 3);
+  g.addEdge(3, 2);
+
+  vector<vector<int>> adjMatrix = {
+      {0, 1, 1, 0}, {1, 0, 0, 1}, {1, 0, 0, 1}, {0, 1, 1, 0}};
+
+  vector<bool> visited(
+      4, false); // Initialize visited array of 4 vertices all to false;
+
   g.printGraph();
 
-  cout << endl << "DFS Traversal: " << endl;
+  cout << endl << "DFS Traversal Adjacency Matrix: " << endl;
+  DFS_adjMatrix(0, adjMatrix, visited);
+
+  cout << endl << endl << "DFS Traversal Adjacency List: " << endl;
   DFS(0, g); // calling DFS on the graph with initial vertex from 0
 
-  cout << endl << endl << "BFS Traversal: " << endl;
+  cout << endl << endl << "BFS Traversal Adjacency List: " << endl;
   BFS(0, g); // calling BFS on the graph with initial vertex from 0
 
-  /*
-  Output:
+  cout << endl<< endl << "BFS Traversal Adjacency Matrix: " << endl;
+  BFS_adjMatrix(0, adjMatrix, visited, g);
 
-  Original Graph:
-  0 -> 1 2
-  1 -> 0 3
-  2 -> 0 3
-  3 -> 1 2
+ /* Original Graph: 
+  0 -> 1 2 
+  1 -> 0 3 
+  2 -> 0 3 
+  3 -> 1 2 
 
-  DFS Traversal:
-  0 1 3 2 2 3
+  DFS Traversal Adjacency Matrix: 
+  0 1 3 2 
 
-  BFS Traversal:
-  0 1 2 3
+  DFS Traversal Adjacency List: 
+  0 1 3 2 2 3 
 
-  */
+  BFS Traversal Adjacency List: 
+  0 1 2 3 
+
+  BFS Traversal Adjacency Matrix: 
+  0 1 2 3 3 
+   */
+
 }
