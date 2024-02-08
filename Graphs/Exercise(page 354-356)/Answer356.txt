@@ -61,7 +61,6 @@ public:
   }
 }
 
-Then we can simply create a class gr
- 
+Quest10: 
 
 
