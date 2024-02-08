@@ -1,0 +1,67 @@
+
+Ques 6:  In order to produce a list of all newly visited vertices, or vertices which have been visited only once. We can achieve it simply by using a set and just keep on adding the vertices to it whenever they are visited. We check if the visited vertex is in the set. If it is, then skip it, else add the vertex 
+
+ Modifying the code in page 345
+
+  void Graph::DFS() 
+   {
+       visited = new Boolean[n]
+    
+       set<int> vertices;  //create a set  
+       for(int i = 0; i < n; i++) visited[  i]  = False;
+
+	  DFS(0)
+  	  delete[] visited; 
+    }
+ 
+   void Graph:: DFS(const int v) 
+    {
+          visited[v] = true; 
+          if(vertices.find(v) == false)
+          {vertices.insert(v); 
+  	        }
+          for(each vertex w adjacent to v) 
+           {
+  	   if(!visited[w])
+  	     DFS(w)
+	   }
+ } 
+
+
+Ques 7: 
+In order to prove that edges of T form a tree, we need to prove two main things: 
+
+1. Acyclic: The graph needs to be acyclic becauses trees do not have cycles
+2. Connectivity: All the vertices must be connected with each other. 
+
+In order to check the connectivity, we can simply see if the visited vector is true for all nodes for those number of edges. We can simply 
+check to see if same edge is used twice to visit that same vertex. Meaning if we need to visit a vertex v, then we should only use that edge once
+(Not including the backtracking). We can do this by using another vector of boolean type and changing it to false if that edge is reached again. 
+
+
+
+Ques8: 
+Similar solution as question 7. In the BFS traversal, if the vertex that has already been visited and it is not the parent of the current 
+vertex, that means it has a cycle in it. 
+
+Ques9: 
+
+template<typename KeyType> 
+class Vertex{
+public: 
+  int V; 
+  KeyType key; 
+  KeyType data; 
+
+  Vertex(int V, KeyType key, KeyType data;)
+  {
+     this->V = V; 
+     this->key = key; 
+     this->data = data; 
+  }
+}
+
+Then we can simply create a class gr
+ 
+
+
